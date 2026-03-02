@@ -1,0 +1,63 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="smart_content" default-type="text">
+
+        <types>
+            <type name="smart_content">
+                <meta>
+                    <title>Ürünler</title>
+                </meta>
+                <properties>
+
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="tr">Başlık</title>
+                        </meta>
+                    </property>
+                    <property name="subTitle" type="text_line">
+                        <meta>
+                            <title lang="tr">Alt Başlık</title>
+                        </meta>
+                    </property>
+
+
+                    <property name="pages" type="smart_content">
+                        <meta>
+                            <title lang="tr">Sayfalar</title>
+                        </meta>
+
+                        <params>
+                            <param name="provider" value="pages"/>
+                            <param name="max_per_page" value="12"/>
+                            <param name="page_parameter" value="p"/>
+
+                            <param name="properties" type="collection">
+                                <param name="image" value="excerpt.image"/>
+                                <param name="excerptTitle" value="excerpt.title"/>
+                                <param name="title" value="title" />
+                                <param name="url" value="url"/>
+                            </param>
+
+                            <param name="present_as" type="collection">
+                                <param name="slide">
+                                    <meta>
+                                        <title lang="tr">Slide</title>
+                                    </meta>
+                                </param>
+
+                                <param name="page">
+                                    <meta>
+                                        <title lang="tr">Page</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

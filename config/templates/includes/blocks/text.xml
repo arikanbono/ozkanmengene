@@ -1,0 +1,110 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text">
+
+        <types>
+            <type name="text">
+                <properties>
+
+                    <property name="sectionType" type="single_select">
+                        <meta>
+                            <title lang="tr">Alan Tipi</title>
+                        </meta>
+
+                        <params>
+                            <param name="default_value" value="option1"/>
+
+                            <param name="values" type="collection">
+                                <param name="type_1">
+                                    <meta>
+                                        <title lang="tr">Tip 1</title>
+                                    </meta>
+                                </param>
+
+                                <param name="type_2">
+                                    <meta>
+                                        <title lang="tr">Tip 2</title>
+                                    </meta>
+                                </param>
+                                <param name="type_3">
+                                    <meta>
+                                        <title lang="tr">Tip 3</title>
+                                    </meta>
+                                </param>
+                                <param name="contact">
+                                    <meta>
+                                        <title lang="tr">Contact Page</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="tr">Başlık</title>
+                        </meta>
+                    </property>
+                    <property name="subTitle" type="text_line">
+                        <meta>
+                            <title lang="tr">Alt Başlık</title>
+                        </meta>
+                    </property>
+                    <property name="tagButton" type="text_line">
+                        <meta>
+                            <title lang="tr">Tag Button</title>
+                        </meta>
+                    </property>
+                    <property name="description" type="text_editor">
+                        <meta>
+                            <title lang="tr">Açıklama</title>
+                        </meta>
+                    </property>
+                    <property name="buttonText" type="text_line">
+                        <meta>
+                            <title lang="tr">Buton Metni</title>
+                        </meta>
+                    </property>
+                    <property name="link" type="link">
+                        <meta>
+                            <title lang="de">Link</title>
+                        </meta>
+
+                        <params>
+                            <param name="enable_anchor" value="true"/>
+                            <param name="enable_attributes" value="true"/>
+                            <param name="types" type="collection">
+                                <param name="page"/>
+                                <param name="external"/>
+                                <param name="media"/>
+                            </param>
+                        </params>
+                    </property>
+                    <property name="image" type="single_media_selection">
+                        <meta>
+                            <title lang="tr">Görsel</title>
+                        </meta>
+                        <params>
+                            <param name="types" value="image,video"/>
+
+                            <param name="displayOptions" type="collection">
+                                <param name="leftTop" value="true"/>
+                                <param name="top" value="true"/>
+                                <param name="rightTop" value="true"/>
+                                <param name="left" value="true"/>
+                                <param name="middle" value="false"/>
+                                <param name="right" value="true"/>
+                                <param name="leftBottom" value="true"/>
+                                <param name="bottom" value="true"/>
+                                <param name="rightBottom" value="true"/>
+                            </param>
+
+                            <param name="defaultDisplayOption" value="middle"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

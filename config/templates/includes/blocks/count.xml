@@ -1,0 +1,39 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text">
+
+        <types>
+            <type name="count">
+                <properties>
+                    <property name="counter" type="block">
+                        <meta>
+                            <title lang="tr">Count Items</title>
+                        </meta>
+
+                        <types>
+                            <type name="count">
+                                <meta>
+                                    <title lang="tr">Count</title>
+                                </meta>
+
+                                <properties>
+                                    <property name="title" type="text_line">
+                                        <meta>
+                                            <title lang="tr">Başlık</title>
+                                        </meta>
+                                    </property>
+                                    <property name="number" type="number">
+                                        <meta>
+                                            <title lang="tr">Sayı</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

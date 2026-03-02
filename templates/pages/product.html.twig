@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% block contentHeader %}
+        {% include 'includes/common/content_header.html.twig' with {'uuid': resource.id} %}
+    {% endblock %}
+    {% block contentBody %}
+
+        <!-- services details area start -->
+        <section class="rs-services-area section-space ">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="rs-services-details-wrapper">
+                            {% if extension.excerpt.image is defined and extension.excerpt.image %}
+                                <div class="rs-services-details-thumb">
+                                    <img src="{{ extension.excerpt.image.thumbnails['898x468'] }}"
+                                         alt="{{ extension.excerpt.image.title }}">
+                                </div>
+
+                            {% endif %}
+
+                            <h3 class="rs-services-details-title">{{ content.title }}</h3>
+
+                            {{ content.description|raw }}
+
+
+                            {% include 'includes/blocks.html.twig' %}
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="rs-sidebar-wrapper rs-sidebar-sticky">
+                            {% if resource.parent %}
+                            {% set parentInfo = sulu_page_breadcrumb(resource.parent.id)|last %}
+                            <div class="sidebar-widget widget-categories-two has-content-none mb-30">
+                                <h5 class="mb-25 sidebar-widget-title">{{ parentInfo.title|default('Ürünler') }}</h5>
+                                <ul>
+                                    {% set siblings = sulu_page_navigation_flat(resource.parent.id) %}
+                                    {% for sibling in siblings %}
+                                        {% if sibling.url != app.request.pathInfo %}
+                                            <li>
+                                                <a href="{{ sulu_content_path(sibling.url) }}">
+                                                    {{ sibling.title }}
+                                                    <i class="ri-arrow-right-line"></i>
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% set quoteForm = sulu_form_build(content.form|default([]), 'page', resource.uuid) %}
+                            {% if quoteForm %}
+                            <div class="sidebar-widget widget-cta mb-30">
+                                <div class="rs-contact-form-bg-thumb" data-background="{{ asset('build/website/images/bg/contact-bg-03.png') }}"></div>
+                                {% if app.request.query.get('send') == 'true' %}
+                                    <p class="success-text" style="color: white !important;">{{ content.form.data.successText|raw }}</p>
+                                {% else %}
+                                    <h3 class="rs-contact-form-title">Teklif Al</h3>
+                                    {{ form(quoteForm) }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            {% if content.document %}
+
+                            <div class="sidebar-widget widget-download mb-30">
+                                <h5 class="mb-25 sidebar-widget-title">Dökümanlar</h5>
+                                <ul>
+                                    <li>
+                                        <a href="{{ sulu_get_media_url(content.document, 'inline') }}" target="_blank">
+                                            <div class="left">
+                                                <span><img src="{{ asset('build/website/images/icon/pdf.svg') }}" alt="Dökümanı indir"></span>
+                                                Dökümanı İndir
+                                            </div>
+                                            <span><img src="{{ asset('build/website/images/icon/download-02.svg') }}" alt="#"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% endblock %}

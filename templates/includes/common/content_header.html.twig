@@ -1,0 +1,31 @@
+{% set headerImage = content.headerImage|default(null) %}
+{% if headerImage is not empty %}
+    {% set bgImage = content.headerImage.thumbnails['1920x'] %}
+{% else %}
+    {% set bgImage = asset('build/website/images/Content-3.png') %}
+{% endif %}
+<!-- breadcrumb area start -->
+<section class="rs-breadcrumb-area rs-breadcrumb-one p-relative">
+    <div class="rs-breadcrumb-bg" data-background="{{ bgImage }}"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-6 col-xl-8 col-lg-8">
+                <div class="rs-breadcrumb-content-wrapper">
+                    <div class="rs-breadcrumb-title-wrapper">
+                        <h1 class="rs-breadcrumb-title">{{ content.title }}</h1>
+                    </div>
+                    <div class="rs-breadcrumb-menu">
+                        <nav>
+                            <ul>
+                                {% for item in sulu_page_breadcrumb(uuid|default(null)) %}
+                                    <li><span><a href="{{ sulu_content_path(item.url) }}">{{ item.title }}</a> </span></li>
+                                {% endfor %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb area end -->

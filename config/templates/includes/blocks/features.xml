@@ -1,0 +1,109 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text">
+
+        <types>
+            <type name="features">
+                <properties>
+
+                    <property name="sectionTitle" type="text_line">
+                        <meta>
+                            <title lang="tr">Section Title</title>
+                        </meta>
+                    </property>
+
+                    <property name="sectionType" type="single_select">
+                        <meta>
+                            <title lang="tr">Feature Tipi</title>
+                        </meta>
+
+                        <params>
+                            <param name="default_value" value="option1"/>
+
+                            <param name="values" type="collection">
+                                <param name="type_1">
+                                    <meta>
+                                        <title lang="tr">Tip 1</title>
+                                    </meta>
+                                </param>
+
+                                <param name="type_2">
+                                    <meta>
+                                        <title lang="tr">Tip 2</title>
+                                    </meta>
+                                </param>
+                                <param name="type_3">
+                                    <meta>
+                                        <title lang="tr">Tip 3</title>
+                                    </meta>
+                                </param>
+                                <param name="type_4">
+                                    <meta>
+                                        <title lang="tr">Neden Özkan Makina Section</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+                    <property name="cards" type="block">
+                        <meta>
+                            <title lang="tr">Cards</title>
+                        </meta>
+
+                        <types>
+                            <type name="icon_cards">
+                                <meta>
+                                    <title lang="tr">Card</title>
+                                </meta>
+
+                                <properties>
+
+                                    <property name="title" type="text_line">
+                                        <meta>
+                                            <title lang="tr">Başlık</title>
+                                        </meta>
+                                    </property>
+
+                                    <property name="description" type="text_line">
+                                        <meta>
+                                            <title lang="tr">Açıklama</title>
+                                        </meta>
+                                    </property>
+
+                                    <property name="icon" type="text_line">
+                                        <meta>
+                                            <title lang="tr">Icon text</title>
+                                        </meta>
+                                    </property>
+
+
+                                    <property name="buttonText" type="text_line">
+                                        <meta>
+                                            <title lang="tr">Buton Metni</title>
+                                        </meta>
+                                    </property>
+                                    <property name="link" type="link">
+                                        <meta>
+                                            <title lang="de">Link</title>
+                                        </meta>
+
+                                        <params>
+                                            <param name="enable_anchor" value="true"/>
+                                            <param name="enable_attributes" value="true"/>
+                                            <param name="types" type="collection">
+                                                <param name="page"/>
+                                                <param name="external"/>
+                                                <param name="media"/>
+                                            </param>
+                                        </params>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

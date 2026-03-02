@@ -1,0 +1,94 @@
+{% if content.sectionType == 'type_1' %}
+    <!-- about area start -->
+    <section class="rs-about-area section-space-bottom rs-about-one">
+        <div class="container">
+            <div class="row  g-5">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="rs-section-title-wrapper">
+                        {% if content.tagButton %}
+                            <span class="rs-section-subtitle has-theme-orange justify-content-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
+                                     fill="none">
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
+                                          fill="#EA5501"></path>
+                                </svg>
+                                {{ content.tagButton }}
+                            </span>
+                        {% endif %}
+                        <h2 class="rs-section-title rs-split-text-enable split-in-fade">
+                            {{ content.title}}
+                            {% if content.subTitle %}
+                                <span class="rs-theme-orange">{{ content.subTitle }}</span>
+                            {% endif %}
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-5">
+                    <div class="rs-about-content">
+                        <div class="rs-about-description">
+                            {{ content.description|raw }}
+                        </div>
+                        {% if content.buttonText and content.link  %}
+                        <div class="rs-about-btn">
+                            <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ content.link }}">{{ content.buttonText }}
+                                <span class="icon-box">
+                                        <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                            </path>
+                                        </svg>
+                                        <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                            <path
+                                                d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if content.image %}
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="rs-about-thumb wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                        <div class="rs-about-bg-thumb" data-background="{{ content.image.thumbnails['1362x500'] }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- about area end -->
+{% endif %}
+
+{% if content.sectionType == 'contact' %}
+    <!-- contact area start -->
+    <section class="rs-contact-area rs-contact-eight section-space-top">
+        <div class="container">
+            <div class="row  g-5 justify-content-center section-title-space align-items-center">
+                <div class="col-xl-7 col-lg-7 col-md-8">
+                    <div class="rs-section-title-wrapper text-center">
+                            <span class="rs-section-subtitle has-theme-orange">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
+                                     fill="none">
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
+                                          fill="#EA5501"></path>
+                                </svg>
+                                {{ content.tagButton }}
+                            </span>
+                        <h2 class="rs-section-title rs-split-text-enable split-in-fade mb-10">{{ content.title }}<h2>
+                        {{ content.description|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact area end -->
+{% endif %}

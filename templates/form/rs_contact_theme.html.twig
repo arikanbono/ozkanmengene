@@ -1,0 +1,75 @@
+{% extends '@SuluForm/themes/basic.html.twig' %}
+
+{# Sulu width değerlerini Bootstrap kolon sınıflarına mapla #}
+{%- block sulu_form_row_class_name -%}
+    {%- set widthMap = {
+        'full': 'col-md-12',
+        'three-quarters': 'col-md-9',
+        'two-thirds': 'col-md-8',
+        'half': 'col-md-6',
+        'one-third': 'col-md-4',
+        'one-quarter': 'col-md-3'
+    } -%}
+    {{- widthMap[attr.width|default('full')]|default('col-md-12') -}}
+{%- endblock sulu_form_row_class_name -%}
+
+{# Kök form gövdesini Bootstrap row ile sar #}
+{%- block form_widget_compound -%}
+    {%- if form.parent is null -%}
+        <div {{ block('widget_container_attributes') }} class="row g-5">
+            {{- block('form_rows') -}}
+            {{- form_rest(form) -}}
+        </div>
+    {%- else -%}
+        {{- parent() -}}
+    {%- endif -%}
+{%- endblock form_widget_compound -%}
+
+{# Input satırlarını rs-contact-input ile sar #}
+{%- block form_row -%}
+    <div class="{{ block('sulu_form_row_class_name') }}">
+        <div class="rs-contact-input">
+            {{- form_widget(form) -}}
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{%- endblock form_row -%}
+
+{# Submit butonunu rs-contact-btn ile sar #}
+{%- block button_row -%}
+    <div class="{{ block('sulu_form_row_class_name') }}">
+        <div class="rs-contact-btn">
+            {{- form_widget(form) -}}
+        </div>
+    </div>
+{%- endblock button_row -%}
+
+{# Submit butonuna rs-btn has-theme-orange sınıflarını ekle #}
+{%- block button_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' rs-btn has-theme-orange')|trim}) -%}
+    {{- parent() -}}
+{%- endblock button_widget -%}
+
+{# freeText: sütun sarıcı, input sarıcı olmadan #}
+{%- block freeText_row -%}
+    <div class="{{ block('sulu_form_row_class_name') }}">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock freeText_row -%}
+
+{# headline: sütun sarıcı, input sarıcı olmadan #}
+{%- block headline_row -%}
+    <div class="{{ block('sulu_form_row_class_name') }}">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock headline_row -%}
+
+{# spacer: sütun sarıcı #}
+{%- block spacer_row -%}
+    <div class="{{ block('sulu_form_row_class_name') }}">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock spacer_row -%}
+
+{# Etiketleri gizle — placeholder'lar yeterli #}
+{%- block form_label -%}{%- endblock form_label -%}

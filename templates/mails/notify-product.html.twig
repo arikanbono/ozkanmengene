@@ -1,0 +1,34 @@
+<p>
+    <strong>Ürün:</strong> {{ app.request.attributes.get('object') ? app.request.attributes.get('object').getTemplateData()['title']|default('—') : '—' }}<br>
+    <strong>Ürün Linki:</strong> <a href="{{ app.request.schemeAndHttpHost ~ app.request.pathInfo }}">{{ app.request.schemeAndHttpHost ~ app.request.pathInfo }}</a>
+</p>
+<hr>
+
+{% for field in formEntity.fields|default([]) -%}
+    {%- set value = field.value -%}
+
+    {%- if value is iterable -%}
+        {%- if field.type == 'attachment' -%}
+            {%- set mediaUrls = [] -%}
+            {%- for mediaId in field.value -%}
+                {%- set media = sulu_resolve_media(mediaId, app.request.locale) -%}
+                {%- set mediaUrls = mediaUrls|merge(['<a href="' ~ absolute_url(media.url) ~ '">' ~ media.title ~ '</a>']) -%}
+            {%- endfor -%}
+            {%- set value -%}
+                {{- mediaUrls|join(', ')|raw -}}
+            {%- endset -%}
+        {%- else -%}
+            {%- set value = value|json_encode -%}
+        {%- endif -%}
+    {%- elseif value.timestamp is defined -%}
+        {% set value = value|date('d.m.Y') -%}
+    {%- else -%}
+        {%- set value -%}
+            {{- value|nl2br -}}
+        {%- endset -%}
+    {%- endif -%}
+
+    {%- if value is not empty and field.value is not empty -%}
+        <strong>{{ field.shortTitle|default(field.title)|raw }}</strong>: {{ value }}<br>
+    {% endif %}
+{% endfor %}

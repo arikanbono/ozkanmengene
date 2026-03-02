@@ -1,0 +1,112 @@
+
+{% if content.sectionType == 'type_1' %}
+    <!-- feature area start -->
+    <section class="rs-feature-area section-space rs-feature-one">
+        <div class="container">
+            <div class="row g-5 process-counts">
+                {% for card in content.cards %}
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="rs-feature-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                            <div class="rs-feature-icon">
+                                {{ card.icon|raw }}
+                            </div>
+                            <h5 class="rs-feature-title">
+                                {{ card.title }}
+                            </h5>
+                            <div class="rs-feature-descrip">
+                                <p>{{ card.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- feature area end -->
+
+{% endif %}
+
+{% if content.sectionType == 'type_2' %}
+    <!-- feature style 02 -->
+    <section class="rs-elements-feature-area section-space-bottom rs-feature-six">
+        <div class="container">
+            <div class="row g-5">
+
+                {% for card in content.cards %}
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="rs-feature-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                            <div class="rs-feature-bg-thumb" data-background="{{ asset('build/website/images/real/services-bg-03.png')}}">
+                            </div>
+                            <div class="rs-feature-icon">
+                                {{ card.icon|raw }}
+                            </div>
+                            <h5 class="rs-feature-title">{{ card.title }}</h5>
+                            <div class="rs-feature-text">
+                                <p>{{ card.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+{% if content.sectionType == 'type_3' %}
+
+    <!-- feature style 05 -->
+    <section class="rs-elements-feature-area section-space rs-category-one primary-bg">
+        <div class="container">
+            <div class="row  process-counts g-5">
+
+                {% for card in content.cards %}
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="rs-category-item wow fadeIn" data-wow-delay=".3s">
+                            <div class="rs-category-icon">
+                                {{ card.icon|raw }}
+                            </div>
+                            <div class="rs-category-content">
+                                <h5 class="rs-category-title">{{ card.title }}</h5>
+                                <p class="descrip">{{ card.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- feature style 05 -->
+{% endif %}
+
+{% if content.sectionType == 'type_4' %}
+    <!-- work step area start -->
+    <section class="rs-work-step-area rs-work-step-one section-space-bottom primary-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <h2 class="rs-work-step-section-title">{{ content.sectionTitle }}</h2>
+                </div>
+            </div>
+            <div class="rs-work-step-wrapper">
+                <div class="row g-5 process-counts">
+                    {% for card in content.cards %}
+                    <div class="col-xl-3 col-lg-3 col-md-6">
+                        <div class="rs-work-step-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                            <h5 class="rs-work-step-title">{{ card.title }}</h5>
+                            <div class="rs-work-step-icon">
+                                {{ card.icon|raw }}
+                            </div>
+                            <div class="rs-work-step-descrip">
+                                <p>{{ card.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- work step area end -->
+{% endif %}

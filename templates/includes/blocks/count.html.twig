@@ -1,0 +1,21 @@
+<!-- counter area start -->
+<div class="rs-counter-area rs-counter-one section-space-bottom">
+    <div class="container">
+        <div class="row g-5">
+            {% for count in content.counter  %}
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                <div class="rs-counter-item">
+                    <div class="rs-counter-inner">
+                        <div class="rs-counter-number-wrapper">
+                            <span class="rs-counter-number odometer" data-count="{{ count.number }}">{{ count.number }}</span>
+                            <span class="prefix">+</span>
+                        </div>
+                        <span class="rs-counter-title">{{ count.title }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- counter area end -->

@@ -1,7 +1,103 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
 
-    {{ content.article|raw }}
+    {% if content.carousel is defined and content.carousel|length > 0 %}
+        <section class="rs-banner-area rs-banner-one p-relative rs-swiper">
+            <div class="rs-banner-shape">
+                <img src="{{ asset('build/website/images/shape/half-arrow.png') }}" alt="image">
+            </div>
+            <div class="container">
+                <div class="row align-items-center  g-5">
+                    <div class="col-xl-2">
+                        <div class="rs-banner-meta-wrapper">
+                            <div class="rs-banner-contact-item">
+                                <span>Email.</span>
+                                <h6><a href="mailto:support.industrie@gmail.com ">ozkan@ozkanmengene.com.tr </a></h6>
+                            </div>
+                            <div class="rs-banner-contact-item">
+                                <span>Tel.</span>
+                                <h6><a href="tel:+902243423439"> +90 224 342 34 39 </a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rs-banner-slider-wrapper">
+
+                <div class="swiper" data-clone-slides="false" data-loop="true" data-speed="2000" data-autoplay="true"
+                     data-dots-dynamic="false" data-hover-pause="true" data-effect="fade" data-delay="1000" data-item="1"
+                     data-item-xl="1" data-item-lg="1" data-item-md="1" data-item-sm="1" data-item-xs="1"
+                     data-item-mobile="1" data-margin="30" data-margin-xl="30" data-margin-lg="30" data-margin-md="30"
+                     data-margin-sm="30" data-margin-xs="30" data-margin-mobile="30">
+                    <div class="swiper-wrapper">
+                        {% for slide in content.carousel %}
+                            <div class="swiper-slide">
+                                <div class="rs-banner-item-wrapper">
+                                    <div class="rs-banner-bg-thumb" data-background="{{ slide.image.thumbnails['1536x1024'] }}">
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xxl-8 col-xl-8 col-lg-10">
+                                                <div class="rs-banner-item">
+                                                    <div class="rs-banner-content">
+                                                        <h1 class="rs-banner-title">{{ slide.title }}</h1>
+                                                        <div class="rs-banner-descrip">
+                                                            <p>{{ slide.description|raw }}</p>
+                                                        </div>
+                                                        {% if slide.buttonText and slide.link %}
+                                                            <div class="rs-banner-info-btn">
+                                                                <div class="rs-banner-btn">
+                                                                    <a class="rs-btn has-theme-orange has-icon has-bg"
+                                                                       href="{{ slide.link }}">{{ slide.buttonText }}
+                                                                        <span class="icon-box">
+                                                                    <svg class="icon-first"
+                                                                         xmlns="http://www.w3.org/2000/svg"
+                                                                         viewBox="0 0 32 32">
+                                                                        <path
+                                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                        </path>
+                                                                    </svg>
+                                                                    <svg class="icon-second"
+                                                                         xmlns="http://www.w3.org/2000/svg"
+                                                                         viewBox="0 0 32 32">
+                                                                        <path
+                                                                            d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                        </path>
+                                                                    </svg>
+                                                                </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <div class="rs-banner-navigation">
+                        <button class="swiper-button-prev rs-swiper-btn"><i
+                                class="fa-regular fa-arrow-left"></i></button>
+                        <button class="swiper-button-next rs-swiper-btn"><i
+                                class="fa-regular fa-arrow-right"></i></button>
+                    </div>
+                    <!-- if we need pagination -->
+                    <div class="rs-banner-pagination d-block d-md-none">
+                        <div class="swiper-pagination rs-pagination has-theme-orange"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endif %}
+
+    {% include 'includes/blocks.html.twig' %}
+
+
 {% endblock %}

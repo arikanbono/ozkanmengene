@@ -1,24 +1,23 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>homepage</key>
+<key>homepage</key>
 
     <view>pages/homepage</view>
     <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
     <cacheLifetime>86400</cacheLifetime>
 
     <meta>
-        <title lang="en">Homepage</title>
-        <title lang="de">Startseite</title>
+        <title lang="tr">Homepage</title>
     </meta>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
             <meta>
-                <title lang="en">Title</title>
-                <title lang="de">Titel</title>
+                <title lang="tr">Title</title>
             </meta>
             <params>
                 <param name="headline" value="true"/>
@@ -29,18 +28,99 @@
 
         <property name="url" type="route" mandatory="true">
             <meta>
-                <title lang="en">Resourcelocator</title>
-                <title lang="de">Adresse</title>
+                <title lang="tr">Resourcelocator</title>
             </meta>
 
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="article" type="text_editor">
+        <property name="carousel" type="block">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="tr">Slider</title>
             </meta>
+
+            <types>
+                <type name="carousel_slide">
+                    <meta>
+                        <title lang="tr">Slayt</title>
+                    </meta>
+
+                    <properties>
+                        <property name="image" type="single_media_selection" mandatory="true">
+                            <meta>
+                                <title lang="tr">Resim</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+
+                        <property name="title" type="text_line">
+                            <meta>
+                                <title lang="tr">Başlık</title>
+                            </meta>
+                        </property>
+
+                        <property name="description" type="text_area">
+                            <meta>
+                                <title lang="tr">Açıklama</title>
+                            </meta>
+                        </property>
+
+                        <property name="buttonText" type="text_line">
+                            <meta>
+                                <title lang="tr">Buton Metni</title>
+                            </meta>
+                        </property>
+
+                        <property name="link" type="link">
+                            <meta>
+                                <title lang="de">Link</title>
+                            </meta>
+
+                            <params>
+                                <param name="enable_anchor" value="true"/>
+                                <param name="enable_attributes" value="true"/>
+                                <param name="types" type="collection">
+                                    <param name="page"/>
+                                    <param name="external"/>
+                                    <param name="media"/>
+                                </param>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+            </types>
         </property>
+
+        <section name="content">
+            <meta>
+                <title lang="tr">İçerik</title>
+            </meta>
+            <properties>
+                <block name="blocks" default-type="text" minOccurs="0">
+
+                    <meta>
+                        <title lang="en">İçerik Blokları</title>
+                    </meta>
+
+                    <types>
+                        <xi:include href="../includes/blocks/text.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <xi:include href="../includes/blocks/count.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <xi:include href="../includes/blocks/features.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <xi:include href="../includes/blocks/smart_content.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                    </types>
+                </block>
+            </properties>
+        </section>
+
     </properties>
 </template>

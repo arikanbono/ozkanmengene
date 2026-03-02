@@ -1,7 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>{{ content.title }}</h1>
+    {% block contentHeader %}
+        {% include 'includes/common/content_header.html.twig' with {'uuid': resource.id} %}
+    {% endblock %}
+    {% block contentBody %}
+        {% include 'includes/blocks.html.twig' %}
 
-    {{ content.article|raw }}
+        {% if content.form %}
+            {% set formData = content.form.data %}
+            {% set contactForm = sulu_form_build(content.form|default([]), 'page', resource.uuid) %}
+            <section class="rs-contact-form-area rs-contact-ten section-space-bottom">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-12">
+                            <div class="rs-contact-form">
+                                <h3 class="rs-contact-form-title">{{ formData.title }}</h3>
+                                <p class="descrip"></p>
+                                {% if app.request.get('send') != 'true' %}
+                                    {{ form(contactForm) }}
+                                {% else %}
+                                    <div id="form-messages">{{ content.form.data.successText|raw }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endblock %}
 {% endblock %}

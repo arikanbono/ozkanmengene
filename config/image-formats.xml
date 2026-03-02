@@ -3,6 +3,28 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
 
+    <format key="1536x1024">
+        <meta>
+            <title lang="tr">Slider Image</title>
+        </meta>
+
+        <scale x="1536" y="1024"/>
+    </format>
+    <format key="1362x500">
+        <meta>
+            <title lang="tr">Section Image</title>
+        </meta>
+
+        <scale x="1362" y="500"/>
+    </format>
+    <format key="898x468">
+        <meta>
+            <title lang="tr">Product Image</title>
+        </meta>
+
+        <scale x="898" y="468"/>
+    </format>
+
     <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
 
     <!--

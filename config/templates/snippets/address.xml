@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>address</key>
+
+    <meta>
+        <title lang="tr">Adres Bilgileri</title>
+    </meta>
+
+    <properties>
+
+        <property name="address" colspan="12" type="text_line">
+            <meta>
+                <title lang="tr">Adres</title>
+            </meta>
+        </property>
+
+
+        <property name="phone" colspan="4" type="text_line">
+            <meta>
+                <title lang="tr">Telefon</title>
+            </meta>
+        </property>
+
+
+        <property name="gsm" colspan="4" type="text_line">
+            <meta>
+                <title lang="tr">Gsm</title>
+            </meta>
+        </property>
+
+
+        <property name="email" colspan="4" type="text_line">
+            <meta>
+                <title lang="tr">Email</title>
+            </meta>
+        </property>
+
+        <property name="footer_content" colspan="12" type="text_line">
+            <meta>
+                <title lang="tr">Footer Açıklama</title>
+            </meta>
+        </property>
+
+
+    </properties>
+    <areas>
+        <area key="site_addresses" cache-invalidation="false">
+            <meta>
+                <title lang="tr">Adres</title>
+            </meta>
+        </area>
+    </areas>
+</template>

@@ -1,0 +1,15 @@
+
+<div class="rs-services-details-wrapper">
+    {% if content.image %}
+        <div class="rs-services-details-thumb">
+            <img src="{{ content.image.url }}"
+                 alt="{{ content.image.fileVersion.name }}">
+        </div>
+
+    {% endif %}
+
+    <h3 class="rs-services-details-title">{{ content.title }}</h3>
+
+    {{ content.description|raw }}
+
+</div>

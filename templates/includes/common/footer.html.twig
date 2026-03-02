@@ -1,0 +1,76 @@
+{% set snippets = sulu_snippet_load_by_area('site_addresses') %}
+<footer class="rs-footer-area rs-footer-one black-bg">
+    <div class="rs-footer-bg-thumb" data-background="{{ asset('build/website/images/bg/footer-bg-01.png') }}"></div>
+    <div class="container">
+        <div class="rs-footer-wrapper">
+            <div class="rs-footer-item">
+                <div class="rs-footer-widget footer-1-col-1">
+                    <div class="rs-footer-widget-logo">
+                        <a href="{{ sulu_content_root_path() }}"><img src="{{ asset('build/website/images/logo/logo.png') }}" alt="logo"></a>
+                    </div>
+                    <div class="rs-footer-widget-content">
+                        <p class="rs-footer-widget-description">
+                            {{ snippets.content.footer_content }}
+                        </p>
+                        <div class="rs-footer-widget-stroke-text">
+                            <h3 class="rs-footer-stroke-text">Kuruluş: 2000</h3>
+                        </div>
+                        <div class="rs-footer-copyright underline">
+                            <p>© <span id="year"></span> Tasarım ve yazılım <a
+                                    href="https://lokomotifajans.com">Lokomotif Ajans</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rs-footer-item">
+                <div class="rs-footer-widget footer-1-col-2">
+                    <h5 class="rs-footer-widget-title">Hızlı Linkler</h5>
+                    <div class="rs-footer-widget-content">
+                        <div class="rs-footer-widget-links">
+                            <ul>
+                                <li>
+                                    <a href="{{ sulu_content_root_path() }}">Ana Sayfa</a>
+                                </li>
+
+                                {% for item in sulu_page_navigation_root_tree('main', 1, {
+                                    title: 'title',
+                                    url: 'url',
+                                }) %}
+                                    <li>
+                                        <a href="{{ sulu_content_path(item.url) }}"
+                                           title="{{ item.title }}">{{ item.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rs-footer-item">
+                <div class="rs-footer-widget footer-2-col-3">
+                    <h5 class="rs-footer-widget-title">Adres</h5>
+                    <div class="rs-footer-widget-content">
+                        <div class="rs-footer-widget-meta">
+                            <div class="rs-footer-widget-address">
+                                <p>{{ snippets.content.address }}</p>
+                            </div>
+                            <h5 class="rs-footer-widget-title">Email</h5>
+                            <div class="rs-footer-widget-email">
+                                <a href="mailto:{{ snippets.content.email }}">{{ snippets.content.email }}</a>
+                            </div>
+                            <h5 class="rs-footer-widget-title">Telefon</h5>
+                            <p></p>
+                            <div class="rs-footer-widget-email">
+                                <a href="phone:{{ snippets.content.phone }}">{{ snippets.content.phone }}</a>
+                                {% if snippets.content.gsm %}
+                                    <a href="phone:{{ snippets.content.gsm }}">{{ snippets.content.gsm }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

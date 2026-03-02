@@ -1,0 +1,179 @@
+{% set mode = view.pages.presentAs %}
+
+{% if mode == 'slide' %}
+<!-- portfolio area start -->
+<section class="rs-portfolio-area section-space-top rs-portfolio-one rs-swiper">
+    <div class="container">
+        <div class="row  g-5 section-title-space align-items-end">
+            <div class="col-xxl-7 col-xl-8 col-lg-8">
+                <div class="rs-section-title-wrapper">
+                            <span class="rs-section-subtitle has-theme-orange justify-content-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15"
+                                     fill="none">
+                                    <path d="M3.14286 10L0 15L8.78104e-07 0L3.14286 5V10Z" fill="#EA5501"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                          d="M6.28571 10L3.14286 15L3.14286 10L4.71428 7.5L3.14286 5L3.14286 0L6.28571 5L6.28571 10ZM6.28571 10L7.85714 7.5L6.28571 5V0L11 7.5L6.28571 15V10Z"
+                                          fill="#EA5501"></path>
+                                </svg>
+                                {{ content.title }}
+                            </span>
+                    <h2 class="rs-section-title">{{ content.subTitle }}</h2>
+                </div>
+            </div>
+            <div class="col-xxl-5 col-xl-4 col-lg-4">
+                <!-- If we need navigation buttons -->
+                <div class=" rs-portfolio-navigation">
+                    <button class="swiper-button-prev rs-swiper-btn has-bg-light"><i
+                            class="fa-regular fa-arrow-left"></i></button>
+                    <button class="swiper-button-next rs-swiper-btn has-bg-light"><i
+                            class="fa-regular fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="rs-portfolio-slider-wrapper">
+                    <div class="swiper has-space" data-clone-slides="false" data-loop="true" data-speed="1500"
+                         data-autoplay="true" data-dots-dynamic="false" data-hover-pause="true"
+                         data-effect="false" data-delay="2500" data-item="4" data-item-xl="3" data-item-lg="3"
+                         data-item-md="2" data-item-sm="1" data-item-xs="1" data-item-mobile="1" data-margin="30"
+                         data-margin-xl="30">
+                        <div class="swiper-wrapper">
+                            {% for page in content.pages %}
+                            <div class="swiper-slide">
+                                <div class="rs-portfolio-item">
+                                    <div class="rs-portfolio-thumb">
+                                        <img src="{{ page.image.thumbnails['898x468'] }}" alt="image">
+                                    </div>
+                                    <div class="rs-portfolio-content">
+
+                                        <h4 class="rs-portfolio-title underline has-white"><a
+                                                href="{{ page.url }}">{{ page.title }}</a></h4>
+                                        <div class="rs-portfolio-btn">
+                                            <a href="{{ page.url }}"
+                                               class="rs-btn has-theme-orange has-circle has-icon">
+                                                        <span class="icon-box">
+                                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                                 viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                                 viewBox="0 0 32 32">
+                                                                <path
+                                                                    d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                                </path>
+                                                            </svg>
+                                                        </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- portfolio area end -->
+
+    <!-- cta area start -->
+    <div class="rs-cta-area rs-cta-one ">
+        <div class="container">
+            <div class="rs-cta-wrapper">
+                <div class="rs-cta-bg" data-background="{{ asset('build/website/images/bg/cta-bg-01.png') }}"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="rs-cta-item-wrapper">
+                            <div class="rs-cta-item  wow fadeIn" data-wow-delay=".3s">
+                                <div class="rs-cta-inner">
+                                    <div class="rs-cta-number-wrapper">
+                                        <span class="rs-cta-number odometer" data-count="52">52</span>
+                                    </div>
+                                    <span class="rs-cta-title">Yıllık Tecrübe</span>
+                                </div>
+                            </div>
+                            <div class="rs-cta-item  wow fadeIn" data-wow-delay=".5s">
+                                <div class="rs-cta-descrip">
+                                    <p>Biz, yalnızca bir mengene üretmiyoruz.
+                                        Üretimde güven, kullanımda uzun ömür ve yatırımınızın karşılığını sunuyoruz.</p>
+                                </div>
+                            </div>
+                            <div class="rs-cta-item  wow fadeIn" data-wow-delay=".7s">
+                                <div class="rs-cta-btn">
+                                    <a class="rs-btn has-theme-orange has-icon has-white has-bg"
+                                       href="iletisim">Bize Ulaşın
+                                        <span class="icon-box">
+                                                <svg class="icon-first" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 32 32">
+                                                    <path
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                    </path>
+                                                </svg>
+                                                <svg class="icon-second" xmlns="http://www.w3.org/2000/svg"
+                                                     viewBox="0 0 32 32">
+                                                    <path
+                                                        d="M31.71,15.29l-10-10L20.29,6.71,28.59,15H0v2H28.59l-8.29,8.29,1.41,1.41,10-10A1,1,0,0,0,31.71,15.29Z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- cta area end -->
+
+{% else %}
+    <!-- portfolio area start -->
+    <section class="rs-portfolio-area rs-portfolio-six section-space has-theme-orange">
+        <div class="container">
+            <div class="row g-5 process-counts">
+                {% for page in content.pages %}
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="rs-portfolio-item wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
+                        <div class="rs-portfolio-thumb"
+                             data-background="{{ page.image.thumbnails['898x468'] }}"></div>
+                        <div class="rs-portfolio-content">
+                            <div class="rs-portfolio-number"></div>
+                            <h5 class="rs-portfolio-title"><a href="{{ page.url }}">{{ page.title }}</a></h5>
+
+                            <div class="rs-services-btn-wrapper">
+                                <div class="rs-portfolio-text-btn">
+                                    <a class="rs-text-btn" href="{{ page.url }}">İncele</a>
+                                </div>
+                                <a class="rs-square-btn has-icon" href="{{ page.url }}">
+                                        <span class="icon-box">
+                                            <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" width="12"
+                                                 height="10" viewBox="0 0 12 10" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M0 5C0 4.60551 0.319797 4.28571 0.714286 4.28571L8.98985 4.28571L5.92349 1.21936C5.64455 0.940417 5.64455 0.488155 5.92349 0.209209C6.20244 -0.0697365 6.6547 -0.0697365 6.93365 0.209209L11.2194 4.49492C11.4983 4.77387 11.4983 5.22613 11.2194 5.50508L6.93365 9.79079C6.6547 10.0697 6.20244 10.0697 5.92349 9.79079C5.64455 9.51184 5.64455 9.05958 5.92349 8.78064L8.98985 5.71429L0.714286 5.71429C0.319797 5.71429 0 5.39449 0 5Z"
+                                                      fill="#616161"></path>
+                                            </svg>
+                                            <svg class="icon-second" xmlns="http://www.w3.org/2000/svg" width="12"
+                                                 height="10" viewBox="0 0 12 10" fill="none">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                      d="M0 5C0 4.60551 0.319797 4.28571 0.714286 4.28571L8.98985 4.28571L5.92349 1.21936C5.64455 0.940417 5.64455 0.488155 5.92349 0.209209C6.20244 -0.0697365 6.6547 -0.0697365 6.93365 0.209209L11.2194 4.49492C11.4983 4.77387 11.4983 5.22613 11.2194 5.50508L6.93365 9.79079C6.6547 10.0697 6.20244 10.0697 5.92349 9.79079C5.64455 9.51184 5.64455 9.05958 5.92349 8.78064L8.98985 5.71429L0.714286 5.71429C0.319797 5.71429 0 5.39449 0 5Z"
+                                                      fill="#616161"></path>
+                                            </svg>
+                                        </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- portfolio area end -->
+{% endif %}
+
