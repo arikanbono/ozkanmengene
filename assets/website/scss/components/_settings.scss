@@ -212,5 +212,102 @@
 }
 
 
+/*----------------------------------------*/
+/*  Contact Widget
+/*----------------------------------------*/
+.contact-widget {
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    z-index: 9999;
 
+    #contact-toggle {
+        display: none;
+    }
+
+    .contact-button {
+        width: 60px;
+        height: 60px;
+        background: var(--rs-theme-orange);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        padding: 0;
+
+        i {
+            font-size: 32px;
+            color: var(--rs-white);
+            line-height: 60px;
+            width: 60px;
+            text-align: center;
+            display: block;
+        }
+
+        &:hover {
+            transform: scale(1.08);
+        }
+    }
+
+    .contact-popup {
+        position: absolute;
+        bottom: 65px;
+        right: 0;
+        width: 240px;
+        background: var(--rs-white);
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+
+    #contact-toggle:checked ~ .contact-popup {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .contact-popup-header {
+        background: var(--rs-theme-orange);
+        color: var(--rs-white);
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .contact-list {
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+
+        li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            color: var(--rs-text-primary);
+            text-decoration: none;
+            transition: background 0.2s ease;
+
+            i {
+                font-size: 18px;
+                width: 20px;
+                text-align: center;
+                color: var(--rs-theme-orange);
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.04);
+                color: var(--rs-theme-orange);
+            }
+        }
+    }
+}
 

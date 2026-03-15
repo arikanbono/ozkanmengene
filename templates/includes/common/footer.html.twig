@@ -13,10 +13,10 @@
                             {{ snippets.content.footer_content }}
                         </p>
                         <div class="rs-footer-widget-stroke-text">
-                            <h3 class="rs-footer-stroke-text">Kuruluş: 2000</h3>
+                            <h3 class="rs-footer-stroke-text">{{ 'footer.founded'|trans }}</h3>
                         </div>
                         <div class="rs-footer-copyright underline">
-                            <p>© <span id="year"></span> Tasarım ve yazılım <a
+                            <p>© <span id="year"></span> {{ 'footer.copyright'|trans }} <a
                                     href="https://lokomotifajans.com">Lokomotif Ajans</a>
                             </p>
                         </div>
@@ -25,12 +25,12 @@
             </div>
             <div class="rs-footer-item">
                 <div class="rs-footer-widget footer-1-col-2">
-                    <h5 class="rs-footer-widget-title">Hızlı Linkler</h5>
+                    <h5 class="rs-footer-widget-title">{{ 'footer.quick_links'|trans }}</h5>
                     <div class="rs-footer-widget-content">
                         <div class="rs-footer-widget-links">
                             <ul>
                                 <li>
-                                    <a href="{{ sulu_content_root_path() }}">Ana Sayfa</a>
+                                    <a href="{{ sulu_content_root_path() }}">{{ 'footer.home'|trans }}</a>
                                 </li>
 
                                 {% for item in sulu_page_navigation_root_tree('main', 1, {
@@ -49,17 +49,17 @@
             </div>
             <div class="rs-footer-item">
                 <div class="rs-footer-widget footer-2-col-3">
-                    <h5 class="rs-footer-widget-title">Adres</h5>
+                    <h5 class="rs-footer-widget-title">{{ 'footer.address'|trans }}</h5>
                     <div class="rs-footer-widget-content">
                         <div class="rs-footer-widget-meta">
                             <div class="rs-footer-widget-address">
                                 <p>{{ snippets.content.address }}</p>
                             </div>
-                            <h5 class="rs-footer-widget-title">Email</h5>
+                            <h5 class="rs-footer-widget-title">{{ 'footer.email'|trans }}</h5>
                             <div class="rs-footer-widget-email">
                                 <a href="mailto:{{ snippets.content.email }}">{{ snippets.content.email }}</a>
                             </div>
-                            <h5 class="rs-footer-widget-title">Telefon</h5>
+                            <h5 class="rs-footer-widget-title">{{ 'footer.phone'|trans }}</h5>
                             <p></p>
                             <div class="rs-footer-widget-email">
                                 <a href="phone:{{ snippets.content.phone }}">{{ snippets.content.phone }}</a>

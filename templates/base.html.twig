@@ -51,6 +51,63 @@
     </div>
     <!-- Backtotop end -->
 
+    <!-- Contact Widget -->
+    {% set contactSnippets = sulu_snippet_load_by_area('site_addresses') %}
+    <div class="contact-widget">
+        <input type="checkbox" id="contact-toggle">
+        <label for="contact-toggle" class="contact-button">
+            <i class="fa-brands fa-whatsapp"></i>
+        </label>
+        <div class="contact-popup">
+            <div class="contact-popup-header">
+                {{ 'contact_widget.title'|trans }}
+            </div>
+            <div class="contact-popup-content">
+                <ul class="contact-list">
+                    {% if contactSnippets.content.gsm %}
+                    {% set gsmDigits = contactSnippets.content.gsm|phone_clean %}
+                    {% if gsmDigits starts with '90' %}
+                        {% set gsmForWa = gsmDigits %}
+                    {% elseif gsmDigits starts with '0' %}
+                        {% set gsmForWa = '90' ~ gsmDigits[1:] %}
+                    {% else %}
+                        {% set gsmForWa = '90' ~ gsmDigits %}
+                    {% endif %}
+                    <li>
+                        <a href="https://wa.me/{{ gsmForWa }}" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% if contactSnippets.content.phone %}
+                    <li>
+                        <a href="tel:+{{ contactSnippets.content.phone|phone_clean }}">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>{{ contactSnippets.content.phone }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="{{ 'contact_widget.contact_path'|trans }}">
+                            <i class="fa-regular fa-share-from-square"></i>
+                            <span>{{ 'contact_widget.contact_form'|trans }}</span>
+                        </a>
+                    </li>
+                    {% if contactSnippets.content.email %}
+                    <li>
+                        <a href="mailto:{{ contactSnippets.content.email }}">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>{{ contactSnippets.content.email }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Widget End -->
+
     {% block javascripts %}
         {# CSS is bundled via Encore; JS loaded as script tags for global scope compatibility #}
         {{ encore_entry_script_tags('app') }}

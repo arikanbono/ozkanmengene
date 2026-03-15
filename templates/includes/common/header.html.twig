@@ -51,8 +51,21 @@
                     </nav>
                 </div>
                 <div class="rs-header-right">
+                    <div class="rs-language-switcher">
+                        {% if localizations is defined and localizations is not empty %}
+                            {% for localization in localizations %}
+                                <a href="{{ localization.url }}"
+                                   class="rs-lang-btn{% if localization.locale == app.request.locale %} active{% endif %}">
+                                    {{ localization.locale|upper }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <a href="/" class="rs-lang-btn{% if app.request.locale == 'tr' %} active{% endif %}">TR</a>
+                            <a href="/en" class="rs-lang-btn{% if app.request.locale == 'en' %} active{% endif %}">EN</a>
+                        {% endif %}
+                    </div>
                     <div class="rs-header-btn">
-                        <a class="rs-btn has-theme-orange has-icon has-bg" href="iletisim">Teklif Alın
+                        <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ 'header.contact_path'|trans }}">{{ 'header.get_quote'|trans }}
                             <span class="icon-box">
                                     <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                         <path
@@ -135,8 +148,21 @@
                     </nav>
                 </div>
                 <div class="rs-header-right">
+                    <div class="rs-language-switcher">
+                        {% if localizations is defined and localizations is not empty %}
+                            {% for localization in localizations %}
+                                <a href="{{ localization.url }}"
+                                   class="rs-lang-btn{% if localization.locale == app.request.locale %} active{% endif %}">
+                                    {{ localization.locale|upper }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <a href="/" class="rs-lang-btn{% if app.request.locale == 'tr' %} active{% endif %}">TR</a>
+                            <a href="/en" class="rs-lang-btn{% if app.request.locale == 'en' %} active{% endif %}">EN</a>
+                        {% endif %}
+                    </div>
                     <div class="rs-header-btn">
-                        <a class="rs-btn has-theme-orange has-icon has-bg" href="iletisim">Teklif Alın
+                        <a class="rs-btn has-theme-orange has-icon has-bg" href="{{ 'header.contact_path'|trans }}">{{ 'header.get_quote'|trans }}
                             <span class="icon-box">
                                     <svg class="icon-first" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                                         <path
@@ -178,7 +204,7 @@
                             <img src="{{ asset('build/website/images/logo/logo.png') }}" alt="Özkan Mengene">
                         </a>
                     </div>
-                    <button class="offcanvas-close" aria-label="Menüyü kapat">
+                    <button class="offcanvas-close" aria-label="{{ 'header.close_menu'|trans }}">
                         <span class="offcanvas-close-icon">
                             <span class="offcanvas-m-lines">
                                 <span class="offcanvas-m-line line--1"></span>
